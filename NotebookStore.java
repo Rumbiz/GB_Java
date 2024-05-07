@@ -115,7 +115,7 @@ public class NotebookStore {
 
         return notebooks;
     }
-
+//Сохранение данных о ноутбуках в CSV-формате.
     private static void saveNotebooksToFile(Set<Notebook> notebooks) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(DATA_FILE))) {
             for (Notebook notebook : notebooks) {
@@ -134,7 +134,7 @@ public class NotebookStore {
             System.err.println("Ошибка сохранения данных в файл: " + e.getMessage());
         }
     }
-
+//Функция фильтрации.
     private static void filterNotebooks(Set<Notebook> notebooks) {
         Scanner scanner = new Scanner(System.in);
         Map<Integer, String> filterCriteria = new HashMap<>();
@@ -165,7 +165,8 @@ public class NotebookStore {
             System.out.println("Некорректный выбор критерия.");
         }
     }
-
+    //"Вилка" действий для различных критериев фильтрации. Для численных- фильтрация вида "Больше или равно", для строчных- строгое равенство.
+    
     private static Set<Notebook> filterNotebooksByCriteria(Set<Notebook> notebooks, String criteria, String minValue) {
         switch (criteria) {
             case "ОЗУ":
